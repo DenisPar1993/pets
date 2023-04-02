@@ -48,7 +48,8 @@ body{
 
 .main{
     background-image: url(../assets/background-main.png);
-    padding: 28px 21px 0px 41px;
+    background-size: cover;
+    padding: 28px 41px 0px 41px;
 }
 
 .menu{
@@ -56,6 +57,9 @@ body{
     justify-content: space-between;
     align-items: center;
     color: #FFF;
+}
+.burger{
+    display: none;
 }
 .nav-list{
     display: flex;
@@ -125,7 +129,7 @@ body{
     margin: 80px 40px 100px;
     display: flex;
     justify-content: center;
-    gap: 128px;
+    gap: 117px;
 }
 .about-describe{
     max-width: 450px;
@@ -186,7 +190,7 @@ body{
     content:url('../assets/Arrow-right.svg');
     position: absolute;
     padding: 16px;
-    right: -13px;
+    right: 1px;
     top: 44%;
     border: 2px solid #F1CDB3;
     border-radius: 50%;
@@ -292,7 +296,7 @@ body{
     display: flex;
     justify-content: center;
     background-color: #F6F6F6;
-    gap: 45px;
+    gap: 35px;
     padding: 80px 0px 96px;
 }
 .donation-info{
@@ -320,7 +324,7 @@ body{
  max-width: 319px;
  background: #F1CDB3;
  border-radius: 9px;
- padding: 6px 17px 11px 15px;
+ padding: 6px 17px 11px 12px;
  font-family: 'Georgia',sans-serif;
  font-size: 20px;
  color: #545454;
@@ -333,6 +337,9 @@ body{
 .donation-card span{
     letter-spacing: 0.06em;
 }
+.donation-img{
+    height: 272px;
+}
 .donation-text{
     font-size: 12px;
     font-style: italic;
@@ -343,8 +350,11 @@ body{
 .footer{
     display: flex;
     justify-content: space-between;
-    padding: 38px 24px 0 40px;
+    padding: 38px 38px 0 40px;
     background-image: url(../assets/Footer-background.png);
+}
+.footer-img{
+    width: 300px;
 }
 .question-title{
     max-width: 280px;
@@ -374,4 +384,311 @@ body{
     line-height: 115%;
     letter-spacing: 0.06em;
     color: #F1CDB3;
+}
+
+
+
+
+
+
+@media screen and (max-width:1250px){
+    .gallery {
+        padding: 22px 25px 100px 39px;
+    }
+    .slider-wrap {
+        gap: 40px;
+    }
+    .slider-wrap::before,.slider-wrap::after{
+        top: 43%;
+    }
+    /* .slider-wrap::before {
+        left: -8px;
+        top: 43%;
+    } */
+}
+
+@media screen and (max-width:1150px) {
+    .slider-item:nth-last-child(1){
+      display: none;
+    }
+    .main{
+        padding: 30px 32px 0px 30px;
+    }
+    .main-content {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .main-content__describe {
+        margin: 0 auto;
+        max-width: 460px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 102px;
+    }
+    .main-content__image{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .main-content__image img{
+        width: 569px;
+    }
+    .main-content__text{
+        margin-bottom: 42px;
+    }
+    .main-content__btn {
+        align-self: center;
+    }
+    .slider-wrap {
+        margin-bottom: 58px;
+    }
+    .help {
+        padding: 80px 30px 100px;
+    }
+    .help-container {
+        gap: 78px;
+        row-gap: 54px;
+        margin-top: 60px;
+    }
+    .help-item {
+        min-width: 150px;
+    }
+    .help-title {
+        padding-left: 15px;
+    }
+}
+@media screen and (max-width:1050px){
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 27px 34px 0 40px;
+    gap: 57px;
+    background-image: url(../assets/Footer-background.png);
+    flex-wrap: wrap;
+    background-size: cover;
+}
+.info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: -27px;
+} 
+.question-title {
+    margin-top: 5px;
+    margin-bottom: 29px;
+}
+.footer-info {
+    margin-bottom: 33px;
+}
+}
+@media screen and (max-width:950px){
+  .about-container{
+    margin: 70px 40px 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 79px;
+  }
+  .about-describe {
+    order: -1;
+}
+.donation-info {
+    max-width: 380px;
+    order: -1;
+    padding-left: 5px;
+}
+.donation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F6F6;
+    gap: 45px;
+    padding: 80px 0px 101px;
+    flex-direction: column;
+}
+.donation-img{
+    height: 276px;
+}
+.slider-wrap::after{
+    content:url('../assets/Arrow-right.svg');
+    position: absolute;
+    padding: 16px;
+    right: 6px;
+    top: 43%;
+    border: 2px solid #F1CDB3;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+}
+@media screen and (max-width:767px){
+    .nav-list {
+        display: none;
+       }
+       .burger{
+           display: block;
+           position: absolute;
+           right: 20px;
+           top: 49px;
+       }
+}
+
+
+@media screen and (max-width:760px){
+    .slider-item:nth-child(2) {
+        display: none;
+    }
+    .slider-wrap::after {
+        right: 70px;
+    }
+    .slider-wrap::before {
+        left: 67px;
+    }
+    .main {
+        padding: 30px 15px 0px 14px;
+    }
+    .main-content__image img {
+        width: 375px;
+    }
+    .main-content__title{
+        font-size: 35px;
+    }
+    .about-title {
+        max-width: 341px;
+        font-size: 30px;
+        text-align: center;
+    }
+}
+@media screen and (max-width:630px){
+
+    .slider-wrap {
+        margin-bottom: 110px;
+    }
+ .slider-wrap::before {
+        top: 104%;
+        left: calc(50% - 91px);
+    }
+    .slider-wrap::after {
+        top: 104%;
+        right: calc(50% - 91px);
+    }
+    .gallery {
+        padding: 22px 10px 44px 10px;
+    }
+}
+
+
+
+@media screen and (max-width:490px){
+    .main-content__title {
+        font-size: 25px;
+        text-align: center;
+        margin-left: 18px;
+        letter-spacing: 0.06em;
+        max-width: 258px;
+    }
+    .main-content__text {
+        margin-bottom: 42px;
+        text-align: center;
+    }
+    .main-content__describe {
+        margin-bottom: 109px;
+    }
+    .main-content__image img {
+        width: 260px;
+    }
+    .about-describe p {
+        margin-top: 22px;
+    }
+    .about-title {
+        max-width: 341px;
+        font-size: 25px;
+    }
+    .about-container {
+        margin: 33px 24px 38px;
+    }
+    .about-container {
+        gap: 44px;
+    }
+    .about-img img{
+        width: 260px;
+    }
+    .gallery-title {
+        margin: 17px auto 43px;
+        font-size: 25px;
+    }
+    .help {
+        padding: 43px 10px 45px;
+    }
+    .help-container {
+        justify-content: space-between;
+        gap: 0px;
+        row-gap: 29px;
+        margin-top: 41px;
+    }
+    .help-item {
+        max-width: 130px;
+    }
+    .help-item img{
+        width: 50px;
+        margin-bottom: 20px;
+    }
+    .help-name {
+        font-size: 15px;
+    }
+    .help-title {
+        font-size: 25px;
+        padding-left: 0;
+        text-align: center;
+        max-width: 270px;
+    }
+    .donation {
+        padding: 42px 10px 39px;
+    }
+    .donation-img {
+        width: 260px;
+        height: 135px;
+    }
+    .donation-title {
+        font-size: 25px;
+        max-width: 216px;
+    }
+    .donation-info {
+        padding-left: 12px;
+    }
+    .donation-card {
+        padding: 10px 17px 11px 15px;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .donation-subtitle{
+        letter-spacing: inherit;
+    }
+    .footer {
+        padding: 24px 10px 0 10px;
+    }
+    .info-block:nth-child(1){
+        align-items: center;
+        margin-bottom: -49px;
+    }
+    .info-block:nth-child(2) {
+        margin-bottom: -47px;
+    }
+    .question-title {
+        margin-bottom: 41px;
+        font-size: 25px;
+        text-align: center;
+    }
+    .footer-img{
+        width: 260px;
+    }
+    .info-block:nth-child(2) .question-title{
+        padding-left: 10px;
+    }
+}
+@media screen and (max-width:350px){
+    .donation-title{
+        margin: 0 auto 23px;
+        text-align: center;
+    }
 }
