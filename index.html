@@ -14,19 +14,25 @@
 <body>
     <div class="container">
     <section class="main">
-        <div class="burger"><img src="./assets/Burger.png" alt="burger"></div>
+        <div class="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </div>
         <header class="header">
             <nav class="menu">
                 <a href="#" class="logo">
                     <div class="logo-title">Cozy House</div>
                     <div class="logo-subtitle">Shelter for pets in Boston</div>
                 </a>
-                <ul class="nav-list">
-                    <li><a href="./index.html" class="nav-links active-page">About the shelter</a></li>
-                    <li><a href="./pets-page/pets.html" class="nav-links">Our pets</a></li>
-                    <li><a href="#Help" class="nav-links">Help the shelter</a></li>
-                    <li><a href="#footer" class="nav-links">Contacts</a></li>
-                </ul>
+                <div class="nav-wrap">
+                    <ul class="nav-list">
+                        <li><a href="./index.html" class="nav-links active-page">About the shelter</a></li>
+                        <li><a href="./pets-page/pets.html" class="nav-links">Our pets</a></li>
+                        <li><a href="#Help" class="nav-links">Help the shelter</a></li>
+                        <li><a href="#footer" class="nav-links">Contacts</a></li>
+                    </ul>
+                </div>
             </nav>
         </header>
         <div class="main-content">
@@ -73,29 +79,86 @@
             <h3 class="gallery-title">Our friends who<br>
                 are looking for a house
             </h3>
-            <div class="slider-wrap">
-                <div class="slider-item">
-                    <img src="./assets/slides/pets-katrine.png" alt="slide">
-                    <div class="slide-name">Katrine</div>
-                    <a href="#" class="btn-slide">
-                        Learn more
-                    </a>
-                </div>
-                <div class="slider-item">
-                    <img src="./assets/slides/pets-jennifer.png" alt="slide">
-                    <div class="slide-name">Jennifer</div>
-                    <a href="#" class="btn-slide">
-                        Learn more
-                    </a>
-                </div>
-                <div class="slider-item">
-                    <img src="./assets/slides/pets-woody.png" alt="slide">
-                    <div class="slide-name">Woody</div>
-                    <a href="#" class="btn-slide">
-                        Learn more
-                    </a>
-                </div>
+            <div class="slider">
+                <button class="slider-btn prev"
+                ><img src="./assets/Arrow-left.svg" alt="">
+                </button>
+                <button class="slider-btn next"
+                ><img src="./assets/Arrow-right.svg" alt="">
+                </button>
+                <div class="slider-wrap">
+                     <div class="slides prev-slide">
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-katrine.png" alt="slide">
+                            <div class="slide-name">Katrine</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-katrine.png" alt="slide">
+                            <div class="slide-name">Jennifer</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-katrine.png" alt="slide">
+                            <div class="slide-name">Woody</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slides current-slide">
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-jennifer.png" alt="slide">
+                            <div class="slide-name">Katrine</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-jennifer.png" alt="slide">
+                            <div class="slide-name">Jennifer</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-jennifer.png" alt="slide">
+                            <div class="slide-name">Woody</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slides next-slide">
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-woody.png" alt="slide">
+                            <div class="slide-name">Katrine</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-woody.png" alt="slide">
+                            <div class="slide-name">Jennifer</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/slides/pets-woody.png" alt="slide">
+                            <div class="slide-name">Woody</div>
+                            <a href="#" class="btn-slide">
+                                Learn more
+                            </a>
+                        </div>
+                    </div> 
             </div>
+        </div>
+
             <div class="btn-wrap">
                 <a
                    class="gallery-btn"
@@ -236,7 +299,7 @@
 
     </footer>
 </div>
-
+<script src="./slides.js"></script>
 <script src="./script.js"></script>
 </body>
 

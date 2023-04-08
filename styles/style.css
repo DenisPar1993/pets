@@ -169,33 +169,36 @@ body{
     text-align: center;
     max-width: 400px;
 }
-.slider-wrap{
-    display: flex;
+.slider{
     position: relative;
+}
+.slider-wrap {
+    display: flex;
     justify-content: center;
+   margin: 60px auto;
+    width: 98%;
+    overflow: hidden;
+}
+.slides{
+    display: flex;
     gap: 90px;
-    margin-bottom: 60px;
 }
-.slider-wrap::before{
-    content:url('../assets/Arrow-left.svg');
+.slider-btn{
+    top: 44%;
+    border: 2px solid #F1CDB3;
+    border-radius: 50%;
+    padding: 16px;
+    cursor: pointer;
+    background: transparent; 
     position: absolute;
+}
+.prev{
     left: -8px;
-    top: 44%;
-    border: 2px solid #F1CDB3;
-    border-radius: 50%;
-    padding: 16px;
-    cursor: pointer;
 }
-.slider-wrap::after{
-    content:url('../assets/Arrow-right.svg');
-    position: absolute;
-    padding: 16px;
+.next{
     right: 1px;
-    top: 44%;
-    border: 2px solid #F1CDB3;
-    border-radius: 50%;
-    cursor: pointer;
 }
+
 .slider-item{
     background-color: #FAFAFA;
     display: flex;
@@ -398,9 +401,15 @@ body{
     .slider-wrap {
         gap: 40px;
     }
-    .slider-wrap::before,.slider-wrap::after{
+    .slides{
+        gap: 40px;
+    }
+    .slider-btn{
         top: 43%;
     }
+    /* .slider-wrap::before,.slider-wrap::after{
+        top: 43%;
+    } */
     /* .slider-wrap::before {
         left: -8px;
         top: 43%;
@@ -509,7 +518,7 @@ body{
 .donation-img{
     height: 276px;
 }
-.slider-wrap::after{
+/* .slider-wrap::after{
     content:url('../assets/Arrow-right.svg');
     position: absolute;
     padding: 16px;
@@ -518,6 +527,9 @@ body{
     border: 2px solid #F1CDB3;
     border-radius: 50%;
     cursor: pointer;
+} */
+.next{
+ right: -6px;
 }
 
 }
@@ -525,24 +537,72 @@ body{
     .nav-list {
         display: none;
        }
+       .nav-list {
+        width: 320px;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+       }
        .burger{
-           display: block;
+           display: flex;
+           flex-direction: column;
            position: absolute;
            right: 20px;
            top: 49px;
+           z-index: 3;
+           transition: all .5s;
        }
+       .burger-active{
+        transform: rotate(90deg);
+        transition: all .5s;
+       }
+       .burger-line{
+        display: block;
+        background: #F1CDB3;
+        width: 29px;
+        height: 2px;
+       }
+       .burger-line:nth-child(2){
+          margin: 9px 0;
+       }
+       .nav-wrap{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 120%;
+        right: 0;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: end;
+        transform: translateX(100%) scale(0);
+        transition: all .5s ;
+       }
+       .nav-links{
+        font-size: 32px;
+        line-height: 160%;
+       }
+       .nav-wrap__active{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: end;
+        transform: translateX(0);
+        transition: transform .5s .2s;
+       }
+
 }
 
 
 @media screen and (max-width:760px){
     .slider-item:nth-child(2) {
         display: none;
-    }
-    .slider-wrap::after {
-        right: 70px;
-    }
-    .slider-wrap::before {
-        left: 67px;
     }
     .main {
         padding: 30px 15px 0px 14px;
@@ -564,14 +624,14 @@ body{
     .slider-wrap {
         margin-bottom: 110px;
     }
- .slider-wrap::before {
-        top: 104%;
-        left: calc(50% - 91px);
-    }
-    .slider-wrap::after {
+    .next{
         top: 104%;
         right: calc(50% - 91px);
-    }
+       }
+    .prev{
+        top: 104%;
+        left: calc(50% - 91px);
+       }
     .gallery {
         padding: 22px 10px 44px 10px;
     }
@@ -627,7 +687,7 @@ body{
         margin-top: 41px;
     }
     .help-item {
-        max-width: 130px;
+        min-width: 130px;
     }
     .help-item img{
         width: 50px;
