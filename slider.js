@@ -103,9 +103,19 @@ const data=[
   const sliderItem=[...document.querySelectorAll('.slides')];
   const btnNext = document.querySelector('.next')
   const btnPrev=document.querySelector('.prev')
-  
-  slider.style.width=`${sliderItem[0].getBoundingClientRect().width}px`
-  
+  //Modal window
+  const modal=document.querySelector('.modal');
+  const closeModalBtn = document.querySelector('.close-modal');
+  const modalContainer=document.querySelector('.modal-container')
+  console.log(modalContainer,'modal')
+  modalContainer.addEventListener('click',(e)=>{
+    e.stopPropagation()
+  })
+
+// slider.style.width=`${sliderItem[0].getBoundingClientRect().width}px`;
+slider.style.width='990px'
+console.log(sliderItem[0].getBoundingClientRect().width)
+// slider.style.width=`${document.querySelector('.slides').offsetWidth}px`;
   window.addEventListener('resize',()=>{
      let width = document.querySelector('.slides').offsetWidth
     slider.style.width=`${width}px`
@@ -116,16 +126,17 @@ const data=[
   const PrevSlide=document.querySelector('.prev-slide')
   const CurrenSlide=document.querySelector('.current-slide')
   const NextSlide=document.querySelector('.next-slide')
-  console.log(NextSlide)
+  
   
   let currArr=[0,1,2].map(item=>data[item])
   let prevArr=createRandomArrow(data,currArr)
   let nextArr=createRandomArrow(data,currArr)
-  
+  console.log(nextArr,'current')
   function InitialsSlice(){
     const currentHTML=createElements(currArr)
     const prevHTML=createElements(prevArr)
     const nextHTML=createElements(nextArr)
+
     console.log(currentHTML)
     slider.innerHTML=''
     slider.appendChild(prevHTML)
@@ -133,24 +144,62 @@ const data=[
     slider.appendChild(nextHTML)
   }
   InitialsSlice()
-  
+  modal.addEventListener('click',()=>{
+    modal.classList.remove('active')
+    document.body.style.overflow='';
+  })
+  console.log(closeModalBtn)
+  // closeModalBtn.addEventListener('click',(e)=>{
+   
+  //   console.log('click')
+  //   modal.classList.remove('active');
+  // })
   function createElements(arr){
     const card= document.createElement('div')
-    card.classList.add('slides')
+    card.classList.add('slides');
      arr.forEach(item=>{
        card.innerHTML+=`
-       <div class="slider-item">
+       <div class="slider-item" id=${item.id}>
          <img src=${item.img} alt="slide">
           <div class="slide-name">${item.name}</div>
           <a href="#" class="btn-slide">
                 Learn more
             </a>
         </div>
-       `
+       `;
+     })
+     Array.from(card.children).forEach(item=>{
+      let id=item.getAttribute('id');
+      const findArr= data.find(item=>item.id==id)
+
+
+      item.addEventListener('click',()=>{
+        const template=`
+        <button class="close-modal"><img src="./assets/cross.png" alt="close"></button>
+            <img class="modal-img" src=${findArr.img} alt="modal-image">
+            <div class="modal-describe">
+                <h3 class="modal-title">${findArr.name}</h3>
+                <div class="modal-subtitle">${findArr.type} ${findArr.breed}</div>
+                <p class="modal-text">${findArr.description}</p>
+                <ul class="modal-list">
+                    <li class="modal-list__item"><span>Age:</span>${findArr.age}</li>
+                    <li class="modal-list__item"><span>Inoculations:</span>${findArr.inoculations}</li>
+                    <li class="modal-list__item"><span>Deseases:</span> ${findArr.diseases}</li>
+                    <li class="modal-list__item"><span>Parasites:</span> ${findArr.parasites}</li>
+                </ul>
+            </div>`;
+        modalContainer.innerHTML=template;
+        document.querySelector('.close-modal').addEventListener('click',()=>{
+           modal.classList.remove('active');
+           document.body.style.overflow='';
+        })
+        modal.classList.add('active')
+        document.body.style.overflow='hidden';
+      })
      })
      return card;
   }
-  
+
   const arr=[0,1,2,3,4,5,6,7];
   let excludePool=[0,1,2];
   function changeSlide(direction){
@@ -163,19 +212,11 @@ const data=[
        nextArr=currArr;
        currArr=prevArr
        prevArr=createRandomArrow(data,currArr)
-      // if(prevArr.length){
-      //     nextArr=currArr;
-      //     currArr=prevArr
-  
-      // }else{
-      //     nextArr=currArr;
-      //     currArr=createRandomArrow(data,nextArr)
-      // }
     }
   }
-  
-  
-  
+
+
+
   function createRandomArrow(mainArr,excludeArr){
       let rand;
       let filteredPool=[]
@@ -226,7 +267,7 @@ const data=[
       console.log(currentHTML,prevHTML,nextHTML)
       sliderItem.forEach(item=>{
         console.log(item)
-        item.style.transition=`transform 800ms ease-out`
+        item.style.transition=`transform 300ms ease-out`
         item.style.transform=`translateX(-${sliderItem[0].getBoundingClientRect().width}px)`;
          setTimeout(()=>{
           item.style.transition=`transform 300ms ease-out`;
@@ -235,7 +276,7 @@ const data=[
           slider.appendChild(prevHTML);
           slider.appendChild(currentHTML);
           slider.appendChild(nextHTML);
-         },800)
+         },400)
          
       })
   
@@ -247,7 +288,7 @@ const data=[
       const nextHTML=createElements(nextArr)
       console.log(prevHTML)
       sliderItem.forEach(item=>{
-        item.style.transition=`transform 800ms ease-out`
+        item.style.transition=`transform 300ms ease-out`
         item.style.transform=`translateX(${sliderItem[0].getBoundingClientRect().width}px)`;
          setTimeout(()=>{
           item.style.transition=`transform 300ms ease-out`;
@@ -256,7 +297,7 @@ const data=[
           slider.appendChild(prevHTML);
           slider.appendChild(currentHTML);
           slider.appendChild(nextHTML);
-         },800)
+         },300)
       })
   })
   })

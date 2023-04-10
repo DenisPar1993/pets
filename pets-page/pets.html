@@ -10,6 +10,23 @@
     <title>Cozy House</title>
 </head>
 <body>
+    <div class="modal">
+        <div class="modal-container">
+                <button class="close-modal"><img src="../assets/cross.png" alt="close"></button>
+                <img class="modal-img" src="../assets/slides/pets-jennifer.png" alt="modal-image">
+                <div class="modal-describe">
+                    <h3 class="modal-title">Jennifer</h3>
+                    <div class="modal-subtitle">Dog - Labrador</div>
+                    <p class="modal-text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+                    <ul class="modal-list">
+                        <li class="modal-list__item"><span>Age:</span> 2 months</li>
+                        <li class="modal-list__item"><span>Inoculations:</span> none</li>
+                        <li class="modal-list__item"><span>Deseases:</span> none</li>
+                        <li class="modal-list__item"><span>Parasites:</span> none</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
     <div class="container">
         <div class="burger">
             <span class="burger-line"></span>
@@ -35,7 +52,7 @@
      <section class="pets">
         <h1 class="pets-title">Our friends who <br> are looking for a house</h1>
         <div class="pets-wrap">
-            <div class="pets-item">
+         <div class="pets-item">
                 <img src="../assets/slides/pets-katrine.png" alt="slide">
                 <div class="pets-name">Katrine</div>
                 <a href="#" class="btn-pets">
@@ -90,14 +107,14 @@
                 <a href="#" class="btn-pets">
                     Learn more
                 </a>
-            </div>
+            </div> 
         </div>
         <div class="navigation">
-            <button class="navigation-item" disabled><span class="double">&laquo;</span></button>
-            <button class="navigation-item" disabled><span class="one">&#8249;</span></button>
+            <button class="navigation-item first-page__btn" disabled><span class="double">&laquo;</span></button>
+            <button class="navigation-item one-prev" disabled><span class="one">&#8249;</span></button>
             <button class="navigation-item num-page"><span class="nav-number">1</span></button>
-            <button class="navigation-item"><span class="one">&#8250;</span></button>
-            <button class="navigation-item"><span class="double">&raquo;</span></button>
+            <button class="navigation-item one-next"><span class="one">&#8250;</span></button>
+            <button class="navigation-item last-page__btn"><span class="double">&raquo;</span></button>
         </div>
 
     </section>
@@ -140,8 +157,7 @@
 
     </footer>
 </div>
-
-
+<script src="./pagination.js"></script>
 <script src="./script.js"></script>
 </body>
 </html>

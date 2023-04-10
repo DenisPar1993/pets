@@ -18,7 +18,6 @@ links.forEach(item=>{
 
 
 burgerBtn.addEventListener('click',()=>{
-   console.log('burger')
    if(navWrap.classList.contains('nav-wrap')){
     console.log(navWrap)
       navWrap.classList.add('nav-wrap__active');
@@ -32,5 +31,6 @@ burgerBtn.addEventListener('click',()=>{
     burgerBtn.classList.remove('burger-active')
     body.style.overflowY=''
    }
+    
 
 })
